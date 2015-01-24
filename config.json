@@ -1,7 +1,7 @@
 {
     "system_parameters": [
         {
-            "steps": 25,
+            "steps": 15,
             "final_time": 1000,
             "predator": {
                 "initial_values": {
@@ -27,7 +27,7 @@
                     },
                     "genetic": {
                         "1": {
-                            "start": 0.01,
+                            "start": 0.10,
                             "stop": 0.25
                         }
                     }

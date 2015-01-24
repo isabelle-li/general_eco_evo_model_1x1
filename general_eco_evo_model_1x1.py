@@ -7,119 +7,10 @@ import timeit
 import gc
 import os
 import json
-#from time import sleep
 import datetime
 
 AVG_TIME_PER_GRAPH = 3.932
-DIRECTORY = "/Users/samuelfleischer/Documents/python/general_eco_evo_model/1x1"
-JSON = """{
-	"system_parameters":[
-		{	
-			"steps": 30,
-
-			"final_time" : 10000,
-
-			"predator":{
-				"initial_values":{
-					"densities":{
-						"1": {
-							"start" : 100.0,
-							"stop" : 100.0
-						}
-					},
-					"traits":{
-						"1": {
-							"start": 0.0,
-							"stop": 0.0
-						}
-					}
-				},
-				"trait_variances":{
-					"total":{
-						"1": {
-							"start": 0.4,
-							"stop": 0.4
-						}
-					},
-					"genetic":{
-						"1": {
-							"start": 0.0,
-							"stop": 0.6
-						}
-					}
-				},
-				"death_rates":{
-					"1": {
-						"start": 0.01,
-						"stop": 0.01
-					}
-				}
-			},
-			"prey":{
-				"initial_values":{
-					"densities":{
-						"1": {
-							"start": 120.0,
-							"stop": 120.0
-						}
-					},
-					"traits":{
-						"1": {
-							"start": 0.1,
-							"stop": 0.1
-						}
-					}
-				},
-				"trait_variances":{
-					"total":{
-						"1": {
-							"start": 0.15,
-							"stop": 0.15
-						}
-					},
-					"genetic":{
-						"1": {
-							"start": 0.07,
-							"stop": 0.07
-						}
-					}
-				},
-				"growth_rates":{
-					"1": {
-						"start": 0.1,
-						"stop": 0.1
-					}
-				},
-				"carrying_capacities":{
-					"1": {
-						"start": 225.0,
-						"stop": 225.0
-					}
-				}
-			},
-			"interaction_parameters":{
-				"efficiencies":{
-					"11": {
-						"start": 0.5,
-						"stop": 0.5
-					}
-				},
-				"specialization":{
-					"11": {
-						"start": 0.1,
-						"stop": 0.1
-					}
-				},
-				"max_attack_rates":{
-					"11": {
-						"start": 0.05,
-						"stop": 0.05
-					}
-				}
-			}
-		}
-	]
-}"""
+DIRECTORY = "/Users/samuelfleischer/src/general_eco_evo_models/1x1"
 
 def ask_overwrite():
     overwrite = str(raw_input('File already exists.  Continue anyway?  Type "continue" or "abort" --> '))
@@ -142,8 +33,6 @@ def plot_densities(system, step, date_time_stamp, text):
     for i, t in enumerate(text):
         plt.text(-.32*system.tf, system.K_1*(1-(.05*i)), t)
 
-    # title = 'Changing Parameter: %s = %.5f' % (var_changing, i)
-    # plt.title(title)
     plt.legend(loc=0)
 
     file_ = "%s/graphs/%s/densities_%03d" % (DIRECTORY, date_time_stamp, step)
@@ -169,8 +58,6 @@ def plot_traits(system, step, date_time_stamp, text):
     for i, t in enumerate(text):
         plt.text(-.32*system.tf, 14*(1-(.05*i)), t)
 
-    # title = 'Changing Parameter: %s = %.5f' % (var_changing, i)
-    # plt.title(title)
     plt.legend(loc=0)
 
     file_ = "%s/graphs/%s/traits_%03d" % (DIRECTORY, date_time_stamp, step)
@@ -218,7 +105,7 @@ class System:
         self.tf = tf
         self.y0 = y0
         self.t = np.linspace(0, self.tf, 400000)
-        
+
         self.eff_11 = eff_11
         self.alpha_11 = alpha_11
         self.tau_11 = tau_11
@@ -259,8 +146,7 @@ class System:
         return [f0, f1, f2, f3]
 
 def main():
-    #data = json.loads(open("config.json"))
-    data = json.loads(JSON)
+    data = json.loads(open("%s/config.json" % DIRECTORY).read())
 
     for set_ in data["system_parameters"]:
         now = datetime.datetime.now()
@@ -385,7 +271,6 @@ def main():
         print "average time per graph: %.03f seconds" % (time/number_of_graphs)
         print date_time_stamp
         print "\a\a\a"
-
 
 if __name__ == "__main__":
     main()
