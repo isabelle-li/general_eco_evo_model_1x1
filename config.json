@@ -101,6 +101,200 @@
                     }
                 }
             }
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+        {
+            "steps": 15,
+            "final_time": 1000,
+            "predator": {
+                "initial_values": {
+                    "densities": {
+                        "1": {
+                            "start": 100,
+                            "stop": 100
+                        },
+                        "2": {
+                            "start": 100,
+                            "stop": 100
+                        }
+                    },
+                    "traits": {
+                        "1": {
+                            "start": 0.15,
+                            "stop": 0.15
+                        },
+                        "2": {
+                            "start": 0.15,
+                            "stop": 0.15
+                        }
+                    }
+                },
+                "trait_variances": {
+                    "total": {
+                        "1": {
+                            "start": 0.25,
+                            "stop": 0.25
+                        },
+                        "2": {
+                            "start": 0.25,
+                            "stop": 0.25
+                        }
+                    },
+                    "genetic": {
+                        "1": {
+                            "start": 0.10,
+                            "stop": 0.20
+                        },
+                        "2": {
+                            "start": 0.075,
+                            "stop": 0.225
+                        }
+                    }
+                },
+                "death_rates": {
+                    "1": {
+                        "start": 0.01,
+                        "stop": 0.01
+                    },
+                    "2": {
+                        "start": 0.01,
+                        "stop": 0.01
+                    }
+                }
+            },
+            "prey": {
+                "initial_values": {
+                    "densities": {
+                        "1": {
+                            "start": 120,
+                            "stop": 120
+                        },
+                        "2": {
+                            "start": 130,
+                            "stop": 130
+                        }
+                    },
+                    "traits": {
+                        "1": {
+                            "start": 0.1,
+                            "stop": 0.1
+                        },
+                        "2": {
+                            "start": 0.2,
+                            "stop": 0.2
+                        }
+                    }
+                },
+                "trait_variances": {
+                    "total": {
+                        "1": {
+                            "start": 0.25,
+                            "stop": 0.25
+                        },
+                        "2": {
+                            "start": 0.25,
+                            "stop": 0.25
+                        }
+                    },
+                    "genetic": {
+                        "1": {
+                            "start": 0.1,
+                            "stop": 0.1
+                        },
+                        "2": {
+                            "start": 0.1,
+                            "stop": 0.1
+                        }
+                    }
+                },
+                "growth_rates": {
+                    "1": {
+                        "start": 0.1,
+                        "stop": 0.1
+                    },
+                    "2": {
+                        "start": 0.15,
+                        "stop": 0.15
+                    }
+                },
+                "carrying_capacities": {
+                    "1": {
+                        "start": 225,
+                        "stop": 225
+                    },
+                    "2": {
+                        "start": 250,
+                        "stop": 250
+                    }
+                }
+            },
+            "interaction_parameters": {
+                "efficiencies": {
+                    "11": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    },
+                    "21": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    },
+                    "12": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    },
+                    "22": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    }
+                },
+                "specialization": {
+                    "11": {
+                        "start": 0.1,
+                        "stop": 0.1
+                    },
+                    "21": {
+                        "start": 0.1,
+                        "stop": 0.1
+                    },
+                    "12": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    },
+                    "22": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    }
+                },
+                "max_attack_rates": {
+                    "11": {
+                        "start": 0.05,
+                        "stop": 0.05
+                    },
+                    "21": {
+                        "start": 0.05,
+                        "stop": 0.05
+                    },
+                    "12": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    },
+                    "22": {
+                        "start": 0.5,
+                        "stop": 0.5
+                    }
+                }
+            }
         }
     ]
 }
