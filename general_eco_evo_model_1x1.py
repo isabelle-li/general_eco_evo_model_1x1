@@ -10,7 +10,7 @@ import json
 from datetime import datetime
 
 AVG_TIME_PER_GRAPH = 3.664
-DIRECTORY = "/Users/samuelfleischer/src/general_eco_evo_models/1x1"
+DIRECTORY = "~/src/general_eco_evo_models/1x1"
 
 LaTeX_VARIABLE_FORMAT = {
     "M0"    : "M_{0",
