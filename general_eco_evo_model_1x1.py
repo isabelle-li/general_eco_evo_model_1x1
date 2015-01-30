@@ -229,7 +229,7 @@ class System:
         tau   = self.tau[interaction_subscript]
         theta = self.theta[interaction_subscript]
         def avgattack(m, n):
-            return ((alpha*tau)/sqrt(A))*exp(-(abs(m - n) - theta)**2/(2*A))
+            return ((alpha*tau)/sqrt(A))*exp(-(m - n - theta)**2/(2*A))
         return avgattack
 
     def give_params_avg_pred_fitness(self, pred_subscript):
@@ -265,7 +265,7 @@ class System:
                 eff = self.eff[interaction_subscript]
                 A = self.A[interaction_subscript]
                 theta = self.theta[interaction_subscript]
-                response += avgattack(m,n[int(prey_subscript)-1])*(eff*N[int(prey_subscript)-1]*(theta - abs(n[int(prey_subscript)-1]-m)))/(A)
+                response += avgattack(m,n[int(prey_subscript)-1])*(eff*N[int(prey_subscript)-1]*(theta + n[int(prey_subscript)-1] - m))/(A)
             return response
         return pred_trait_response
 
@@ -278,7 +278,7 @@ class System:
                 eff = self.eff[interaction_subscript]
                 A = self.A[interaction_subscript]
                 theta = self.theta[interaction_subscript]
-                response += avgattack(m[int(pred_subscript)-1],n)*(eff*M[int(pred_subscript)-1]*(theta - abs(n-m[int(pred_subscript)-1])))/(A)
+                response += avgattack(m[int(pred_subscript)-1],n)*(eff*M[int(pred_subscript)-1]*(theta + n - m[int(pred_subscript)-1]))/(A)
             return response
         return pred_trait_response
 
